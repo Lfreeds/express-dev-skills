@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Express-Dev-Skills</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <h1>Developer Skills Cypher</h1>
+    <ul>
+      <% skills.forEach(function(s) { %>
+      <li>
+        <a href="/skills/<%=s.id %>"><%= s.skill %> <%= s.title %></a>
+        <form
+          action="/skills/<%= s.id %>?_method=DELETE"
+          class="delete-form"
+          method="POST"
+        >
+          <button type="submit">Delete Skill</button>
+        </form>
+      </li>
+      <% }); %>
+    </ul>
+    <a href="/skills/new">Add a Skill to the Cypher!</a>
+  </body>
+</html>
